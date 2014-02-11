@@ -1,7 +1,14 @@
 CMSPlugin Template Placeholder
-============
+==============================
 
 A django-cms plugin with a better placeholder tag.
+
+Unfortunately the ``{% placeholer %}`` tag of django-cms3 is not an assignment
+tag. This plugin adds a ``{% placeholder_as %}`` tag to address this issue.
+
+Additionally, we also thought that it would be cool to allowed the use of any
+templatetag in Placeholder fields. This is extremely useful when linking via
+the ``{% url %}`` tag, for example.
 
 Installation
 ------------
@@ -18,8 +25,6 @@ To get the latest commit from GitHub
 
     pip install -e git+git://github.com/bitmazk/cmsplugin-template-placeholder.git#egg=cmsplugin_template_placeholder
 
-TODO: Describe further installation steps (edit / remove the examples below):
-
 Add ``cmsplugin_template_placeholder`` to your ``INSTALLED_APPS``
 
 .. code-block:: python
@@ -29,34 +34,23 @@ Add ``cmsplugin_template_placeholder`` to your ``INSTALLED_APPS``
         'cmsplugin_template_placeholder',
     )
 
-Add the ``cmsplugin_template_placeholder`` URLs to your ``urls.py``
-
-.. code-block:: python
-
-    urlpatterns = patterns('',
-        ...
-        url(r'^//', include('cmsplugin_template_placeholder.urls')),
-    )
-
-Before your tags/filters are available in your templates, load them by using
+Before the new tags are available in your templates, load them by using
 
 .. code-block:: html
 
 	{% load cmsplugin_template_placeholder_tags %}
 
 
-Don't forget to migrate your database
-
-.. code-block:: bash
-
-    ./manage.py migrate cmsplugin_template_placeholder
-
-
 Usage
 -----
 
-TODO: Describe usage or point to docs. Also describe available settings and
-templatetags.
+Import the tag and use it similar to the original ``{% placeholder %}`` tag:
+
+.. code-block:: html
+
+    {% load cmsplugin_template_placeholder %}
+    {% placeholder_as "placeholder_name" as output %}
+    {{ output }}
 
 
 Contribute

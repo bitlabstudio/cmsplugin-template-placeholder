@@ -1,3 +1,5 @@
+-e git+https://github.com/divio/django-cms@042f4953f6d2db66fd15e4cb748ab4b279f57947#egg=cms
+djangocms-admin-style
 django-nose
 coverage
 django-coverage

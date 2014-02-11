@@ -1,6 +1,7 @@
 develop: setup-git
 	pip install "file://`pwd`#egg=cmsplugin_template_placeholder[dev]"
 	pip install -e .
+	pip install -r test_requirements.txt
 
 setup-git:
 	git config branch.autosetuprebase always
