@@ -1,0 +1,9 @@
+include AUTHORS
+include LICENSE
+include DESCRIPTION
+include CHANGELOG.txt
+include README.md
+graft cmsplugin_template_placeholder
+global-exclude *.orig *.pyc *.log *.swp
+prune cmsplugin_template_placeholder/tests/coverage
+prune cmsplugin_template_placeholder/.ropeproject
